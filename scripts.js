@@ -27,3 +27,36 @@ document.getElementById("body").addEventListener("keypress", function(event){
   document.getElementById("pressH").innerText=x
 })
 
+//4 - Create an HTML page with a form. The form should include inputs for a username, email, and password as well as a submit button.
+
+//     In a Javascript file, write code that does the following things:
+//         checks that the password is 12345678
+//         checks that the username contains at least one number
+//         if anything is wrong, send an alert message saying "incorrect"
+//     Your page should also include an H1 tag. If the information in the form is correct, have Javascript change the text in the H1.
+
+function checkForm(){
+	var username = document.getElementById('username')
+	var email = document.getElementById('email')
+	var password = document.getElementById('password')
+
+	var passwordCheck = (password.value == "12345678")
+	var usernameCheck = false
+	for (i=0;i<10;i++) {
+		if (username.value.includes(i)) {
+			usernameCheck = true;
+		}
+	}
+
+	var emailCheck = (email.value.includes("@"));
+
+	if (passwordCheck && usernameCheck && emailCheck) {
+		document.getElementById("areYouIn").innerText="You're in!";
+	} else if (!usernameCheck){
+		alert("please enter a valid username")
+	} else if (!emailCheck) {
+		alert("please enter a valid email")
+	} else{
+		alert("please enter a valid password")
+	}
+}
